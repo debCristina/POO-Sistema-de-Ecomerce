@@ -1,10 +1,9 @@
+//COMENTADO POR DÉBORA CRISTINA
 package util;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 //Classe que estabelece conexao com o banco de dados
-// Responsável pelos comentarios da classe: Débora Cristina
 public class ConexaoUtil {
     // Configurações de conexão
     private String caminho = "localhost"; //endereco do servidor do banco de dados
