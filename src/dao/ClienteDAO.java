@@ -1,3 +1,4 @@
+// Este código foi comentado por Vinicios Trindade Costa para facilitar a compreensão das operações realizadas na classe ClienteDAO.
 package dao;
 
 import model.Cliente;
