@@ -1,30 +1,49 @@
-//COMENTADO POR DÉBORA CRISTINA
 package util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-//Classe que estabelece conexao com o banco de dados
+/**
+ * <h1> ConexaoUtil</h1>
+ * A classe ConexaoUtil é responsável por gerenciar a conexão entre o banco de dados MySQL e a aplicação.
+ * Ela encapsula as informações de configuração do banco de dados, como o servidor, porta, nome do banco de dados,
+ *  usuário e senha, permitindo que essas configurações sejam facilmente alteradas para diferentes ambientes
+ * <p></p>
+ *
+ * @author Débora Ferreira
+ * @version 1.0
+ * @since 31/11/2024
+ */
 public class ConexaoUtil {
-    // Configurações de conexão
-    private String caminho = "localhost"; //endereco do servidor do banco de dados
-    private String porta = "3306"; //porta do mysql
-    private String nomeBancoDeDados = "db_loja"; //nome do banco de dados
-    private String usuario = "root"; //nome de usuario do banco de dados
-    private String senha = System.getenv("DB_MYSQL_PASSWORD"); //senha do banco de dados, obtida através de variavel de ambiente para segurança
-
-    //URL de conexão
+    private String caminho = "localhost";
+    private String porta = "3306";
+    private String nomeBancoDeDados = "db_loja";
+    private String usuario = "root";
+    private String senha = System.getenv("DB_MYSQL_PASSWORD");
     private String url = "jdbc:mysql://"+caminho+":"+porta+"/"+nomeBancoDeDados+"?serverTimezone=UTC&useSSL=false";
 
-    //Metodo para obter a conexão com o banco de dados
+    /**
+     * Cria uma nova conexão com o banco de dados MySQL.
+     * Este método tenta estabelecer uma conexão com o banco de dados através da classe DriverManager e o método getConnection utilizando informações como url, usuario e senha.
+     *
+     * <p><b>Exemplo de uso:</b></p>
+     *   <pre>{@code
+     *  ConexaoUtil conexaoUtil = new ConexaoUtil();
+     *  Connection conn = conexaoUtil.getConexao();
+     *  if (conn != null) {
+     *      System.out.println("Conexão estabelecida com sucesso!");
+     *  } else {
+     *       System.out.println("Falha ao conectar-se ao banco de dados.");
+     *  }
+     *  }</pre>
+     *
+     * @return {@code Connection} representa a conexão com o banco de dados ou null caso ocorra algum erro
+     */
     public Connection getConexao () {
         try {
-            //Estabelece a conexao carregando o driver do jdbc com informacoes de url, usuario e senha
             Connection conn = DriverManager.getConnection(url, usuario, senha);
-            return conn; //retorno da conexao
+            return conn;
         }catch (Exception e){
-            //Em caso de erro é exibido uma mensagem
-            System.out.println("Erro ao conectar-se com o banco de dados" +e.getMessage());
-            return null; //retorno nulo para falta de conexao
+            return null;
         }
     }
 }
