@@ -1,66 +1,71 @@
-//COMENTADO POR FILIPE S.
-
 package model;
 
-import java.sql.Date;
+import java.sql.Date; // Importa a classe Date do pacote java.sql para representar datas.
 
+/**
+ * A classe Cliente contém os atributos e métodos que representam um cliente no sistema.
+ * Fornece métodos para acessar e modificar as propriedades de um cliente, como ID, nome, email, telefone e data de cadastro.
+ *
+ * @author Filipe S.
+ * @since 1.0
+ */
 public class Cliente {
-    private int idCliente;          // Identificador único do cliente
-    private String nome;            // Nome do cliente
-    private String email;           // Email do cliente
-    private String telefone;        // Telefone do cliente
-    private String dataCadastro;    // Data em que o cliente foi cadastrado
+    private int idCliente;          // Identificador único do cliente.
+    private String nome;            // Nome do cliente.
+    private String email;           // Email do cliente.
+    private String telefone;        // Telefone do cliente.
+    private String dataCadastro;    // Data de cadastro do cliente no sistema.
 
-    // Construtor vazio
+    // Construtor padrão para criar um objeto Cliente.
     public Cliente() {
     }
 
-    // Método getter para obter o ID do cliente
+    // Retorna o ID do cliente.
     public int getIdCliente() {
         return idCliente;
     }
 
-    // Método setter para modificar o ID do cliente
+    // Define o ID do cliente.
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
     }
 
-    // Método getter para obter o nome do cliente
+    // Retorna o nome do cliente.
     public String getNome() {
         return nome;
     }
 
-    // Método setter para modificar o nome do cliente
+    // Define o nome do cliente.
     public void setNome(String nome) {
         this.nome = nome;
     }
 
-    // Método getter para obter o email do cliente
+    // Retorna o email do cliente.
     public String getEmail() {
         return email;
     }
 
-    // Método setter para modificar o email do cliente
+    // Define o email do cliente.
     public void setEmail(String email) {
         this.email = email;
     }
 
-    // Método getter para obter o telefone do cliente
+    // Retorna o telefone do cliente.
     public String getTelefone() {
         return telefone;
     }
 
-    // Método setter para modificar o telefone do cliente
+    // Define o telefone do cliente.
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
-    // Método getter para obter a data de cadastro do cliente
+    // Retorna a data de cadastro do cliente.
     public String getDataCadastro() {
         return dataCadastro;
     }
 
-    // Método setter para modificar a data de cadastro do cliente
+    // Define a data de cadastro do cliente.
     public void setDataCadastro(String dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
