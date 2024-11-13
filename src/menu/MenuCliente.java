@@ -1,79 +1,79 @@
-// COMENTADO POR WICTOR EMANOEL
-
 package menu;
+
 import dao.ClienteDAO;
 import model.Cliente;
 import java.util.List;
 import java.util.Scanner;
 
-// Classe responsável por exibir e gerenciar o menu de operações para Cliente
-public  class  MenuCliente{
-    // Método de exibicao do menu
+/**
+ * Classe responsável por exibir e gerenciar o menu de operações para Cliente.
+ * 
+ * @author Wictor Emanoel
+ * @version 1.0
+ * @since 13/11/2024
+ */
+public class MenuCliente {
+
+    /**
+     * Método de exibição do menu.
+     * Este método apresenta ao usuário as opções disponíveis para gerenciar clientes.
+     */
     public void menuCliente() {
+        Cliente cliente = new Cliente(); // Cria um objeto Cliente que representa os dados do Cliente
+        ClienteDAO clienteDAO = new ClienteDAO(); // Cria um objeto ClienteDAO para operações do banco de dados
+        Scanner scanner = new Scanner(System.in); // Cria um objeto da classe Scanner para entrada de dados do usuário
+        int opcaoUsuario = 0; // Declaração da variável de opção do usuário no menu
 
-        // Criando um objeto Cliente que representa os dados do Cliente
-        Cliente cliente = new Cliente();
-        // Criando um objeto ClienteDAO para operacoes do banco de dados
-        ClienteDAO clienteDAO = new ClienteDAO();
-        // Criando um objeto da classe Scannerpara entrada de dados do usuario
-        Scanner scanner = new Scanner(System.in);
-        // Declaracao da variavel de opcao do usuario no menu
-        int opcaoUsuario = 0;
-
-        // Loop que exibe o menu e chama os metodos crud até que o usuário deseje sair
+        // Loop que exibe o menu e chama os métodos CRUD até que o usuário deseje sair
         do {
-            // Exibe o menu de opcoes
             System.out.println("""
-                    ---- Cliente ----
-                    [1] Cadastrar cliente
-                    [2] Listar clientes
-                    [3] Atualizar cliente
-                    [4] Remover cliente
-                    [0] Sair""");
-
-            System.out.println("Opcao: ");
+                ---- Cliente ----
+                [1] Cadastrar cliente
+                [2] Listar clientes
+                [3] Atualizar cliente
+                [4] Remover cliente
+                [0] Sair
+                """);
+            System.out.println("Opção: ");
             opcaoUsuario = scanner.nextInt(); // Lê a opção do usuário
             scanner.nextLine(); // Limpa o buffer de entrada
 
-            // Executa a operacao escolhida pelo usuario
+            // Executa a operação escolhida pelo usuário
             switch (opcaoUsuario) {
                 case 1:
-                    // Chamada do método para cadastrar um novo cliente
-                    cadastrarCliente(scanner, cliente, clienteDAO);
+                    cadastrarCliente(scanner, cliente, clienteDAO); // Chama o método para cadastrar um novo cliente
                     break;
                 case 2:
-                    // Chamada do método listar clientes
-                    listarClientes(clienteDAO);
+                    listarClientes(clienteDAO); // Chama o método listar clientes
                     break;
                 case 3:
-                    // chama o metodo atualizar cliente
-                    atualizarCliente(scanner, clienteDAO);
+                    atualizarCliente(scanner, clienteDAO); // Chama o método atualizar cliente
                     break;
                 case 4:
-                    // Chama o metodo deletar cliente
-                    deletarCliente(scanner, clienteDAO);
+                    deletarCliente(scanner, clienteDAO); // Chama o método deletar cliente
                     break;
                 case 0:
-                    // Encerra o loop
-                    System.out.println("Saindo...");
+                    System.out.println("Saindo..."); // Encerra o loop
                     break;
                 default:
-                    //Informa opcao invalida se a opcao digitada pelo usuario nao corresponder a nenhuma das opcoes disponiveis
-                    System.out.println("Opção inválida");
+                    System.out.println("Opção inválida"); // Informa opção inválida se a opção digitada pelo usuário não corresponder a nenhuma das opções disponíveis
             }
-
         } while (opcaoUsuario != 0); // Continua o loop enquanto a opção do usuário for diferente de 0
     }
 
-    // Método que cria um novo cliente
-    private void cadastrarCliente(Scanner scanner, Cliente cliente, ClienteDAO clienteDAO ) {
+    /**
+     * Método que cria um novo cliente.
+     * 
+     * @param scanner Objeto Scanner para entrada de dados do usuário.
+     * @param cliente Objeto Cliente que representa os dados do cliente.
+     * @param clienteDAO Objeto ClienteDAO para operações do banco de dados.
+     */
+    private void cadastrarCliente(Scanner scanner, Cliente cliente, ClienteDAO clienteDAO) {
         System.out.println("---- Cadastro Cliente ----");
         System.out.println("Nome do cliente: ");
         cliente.setNome(scanner.nextLine()); // Define o nome do cliente
-
         System.out.println("Email do cliente: ");
         cliente.setEmail(scanner.nextLine()); // Define o email do cliente
-
         System.out.println("Telefone do cliente (Apenas números): ");
         cliente.setTelefone(scanner.nextLine()); // Define o telefone do cliente
 
@@ -82,50 +82,64 @@ public  class  MenuCliente{
         String dataCadastro = scanner.nextLine();
         if (!dataCadastro.matches("^\\d{4}-\\d{2}-\\d{2}$")) {
             System.out.println("Data inválida. Verifique o formato (yyyy-MM-dd) e tente novamente.");
-            return; // Encerra o cadastro de a data for invalida
+            return; // Encerra o cadastro se a data for inválida
         }
         cliente.setDataCadastro(dataCadastro); // Define a data de cadastro
-        clienteDAO.inserir(cliente); // Chama o método da classe clienteDAO para insere o cliente no banco de dados
+        clienteDAO.inserir(cliente); // Chama o método da classe ClienteDAO para inserir o cliente no banco de dados
     }
 
-    // Método para buscar e exibir um cliente pelo id
+    /**
+     * Método para buscar e exibir um cliente pelo ID.
+     * 
+     * @param clienteDAO Objeto ClienteDAO para operações do banco de dados.
+     * @param scanner Objeto Scanner para entrada de dados do usuário.
+     */
     private void buscarCliente(ClienteDAO clienteDAO, Scanner scanner) {
         System.out.println("Id para busca: ");
         int idCliente = scanner.nextInt();
-        Cliente cliente = clienteDAO.buscarPorId(idCliente); // Chama o metodo buscaPorId para buscar o cliente no banco de dados
+        Cliente cliente = clienteDAO.buscarPorId(idCliente); // Chama o método buscarPorId para buscar o cliente no banco de dados
+
         // Exibe as informações do cliente
         System.out.printf("""
-                        Id: %d
-                        Nome: %s
-                        Email: %s
-                        Telefone: %s
-                        Data de cadastro: %s
-                        """, cliente.getIdCliente(), cliente.getNome(), cliente.getEmail(),cliente.getTelefone(), cliente.getDataCadastro());
+            Id: %d
+            Nome: %s
+            Email: %s
+            Telefone: %s
+            Data de cadastro: %s
+            """, cliente.getIdCliente(), cliente.getNome(), cliente.getEmail(), cliente.getTelefone(), cliente.getDataCadastro());
     }
 
-    // Método para listar todos os clientes cadastrados
+    /**
+     * Método para listar todos os clientes cadastrados.
+     * 
+     * @param clienteDAO Objeto ClienteDAO para operações do banco de dados.
+     */
     private void listarClientes(ClienteDAO clienteDAO) {
-        List<Cliente> clientes = clienteDAO.listar(); // Chama o metodo da classe ClienteDAO que retorna uma lista de clientes do banco de dados
-        // Itera sobre cada cliente da lista e exibe suas informacoes
-        for(Cliente cliente : clientes) {
+        List<Cliente> clientes = clienteDAO.listar(); // Chama o método da classe ClienteDAO que retorna uma lista de clientes do banco de dados
+
+        // Itera sobre cada cliente da lista e exibe suas informações
+        for (Cliente cliente : clientes) {
             System.out.printf("""
-                                
-                                Id: %d
-                                Nome: %s
-                                Email: %s
-                                Telefone: %s
-                                Data de cadastro: %s
-                                """, cliente.getIdCliente(), cliente.getNome(), cliente.getEmail(),cliente.getTelefone(), cliente.getDataCadastro());
+                Id: %d
+                Nome: %s
+                Email: %s
+                Telefone: %s
+                Data de cadastro: %s
+                """, cliente.getIdCliente(), cliente.getNome(), cliente.getEmail(), cliente.getTelefone(), cliente.getDataCadastro());
         }
     }
 
-    // Método para atualizar os dados de um cliente
+    /**
+     * Método para atualizar os dados de um cliente.
+     * 
+     * @param scanner Objeto Scanner para entrada de dados do usuário.
+     * @param clienteDAO Objeto ClienteDAO para operações do banco de dados.
+     */
     private void atualizarCliente(Scanner scanner, ClienteDAO clienteDAO) {
         System.out.println("Id para atualização: ");
-        int idCliente = scanner.nextInt(); // Recebe o id para atualização
+        int idCliente = scanner.nextInt(); // Recebe o ID para atualização
         scanner.nextLine(); // Limpa o buffer
-
-        Cliente clienteAtualizar = clienteDAO.buscarPorId(idCliente); //chama o metodo buscar para encontrar o cliente com o id informado
+        Cliente clienteAtualizar = clienteDAO.buscarPorId(idCliente); // Chama o método buscar para encontrar o cliente com o ID informado
 
         // Verifica se o cliente existe no banco de dados
         if (clienteAtualizar == null) {
@@ -135,29 +149,30 @@ public  class  MenuCliente{
             System.out.println("---- Atualização de cliente ----");
             System.out.println("Novo nome do cliente: ");
             clienteAtualizar.setNome(scanner.nextLine()); // Atualiza o nome
-
             System.out.println("Novo e-mail do cliente: ");
-            clienteAtualizar.setEmail(scanner.nextLine()); // Atuaiza o email
-
+            clienteAtualizar.setEmail(scanner.nextLine()); // Atualiza o email
             System.out.println("Novo telefone do cliente: ");
             clienteAtualizar.setTelefone(scanner.nextLine()); // Atualiza o telefone
-
-            clienteDAO.atualizar(clienteAtualizar); // Chama o metodo para salvar as atualizacoes no banco de dados
+            clienteDAO.atualizar(clienteAtualizar); // Chama o método para salvar as atualizações no banco de dados
         }
     }
 
-    // Método para deletar um cliente do banco de dados
-    private void deletarCliente(Scanner scanner,ClienteDAO clienteDAO) {
+    /**
+     * Método para deletar um cliente do banco de dados.
+     * 
+     * @param scanner Objeto Scanner para entrada de dados do usuário.
+     * @param clienteDAO Objeto ClienteDAO para operações do banco de dados.
+     */
+    private void deletarCliente(Scanner scanner, ClienteDAO clienteDAO) {
         System.out.println("Id para remoção: ");
-        int idCliente = scanner.nextInt(); // Recebe um id para remocao
+        int idCliente = scanner.nextInt(); // Recebe um ID para remoção
+        Cliente clienteDeletar = clienteDAO.buscarPorId(idCliente); // Utiliza o método buscarPorId para encontrar o cliente
 
-        Cliente clienteDeletar = clienteDAO.buscarPorId(idCliente); // Utiliza o metodo buscaPorId para encontrar o cliente
-        // Verifica o se o cliente existe
+        // Verifica se o cliente existe
         if (clienteDeletar == null) {
             System.out.println("Cliente não encontrado");
-        } else{
+        } else {
             clienteDAO.remover(idCliente); // Chama o método para remover o cliente do banco de dados
         }
     }
 }
-
