@@ -17,7 +17,7 @@ Este é um sistema de integração com banco de dados MySQL que tem como objetiv
 ## 🚀 Funcionalidades
 
 ### 👥 Gestão de Clientes
-- Cadastro e histórico de compras:  Mantenha um registro completo dos clientes com a possibilidade de realizar operações de cadastro, atualização e remoção.
+- Mantenha um registro completo dos clientes com a possibilidade de realizar operações de cadastro, atualização e remoção.
 
 ## 🛠 Tecnologias Utilizadas
 - *Java*: Backend e operações de integração com o banco de dados.
