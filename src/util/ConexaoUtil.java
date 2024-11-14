@@ -3,8 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 
 /**
- * <h1> ConexaoUtil</h1>
- * A classe ConexaoUtil é responsável por gerenciar a conexão entre o banco de dados MySQL e a aplicação.
+ * Responsável por gerenciar a conexão entre o banco de dados MySQL e a aplicação.
  * Ela encapsula as informações de configuração do banco de dados, como o servidor, porta, nome do banco de dados,
  *  usuário e senha, permitindo que essas configurações sejam facilmente alteradas para diferentes ambientes
  * <p></p>
