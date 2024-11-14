@@ -13,7 +13,9 @@ import java.util.List;  // Importa a interface List para facilitar a manipulaç�
  * 
  * @author Vinicios Trindade Costa
  * @version 1.0
+ * @since 13/11/2024
  */
+
 public class ClienteDAO {
     private ConexaoUtil conexao;  // Instância para manipular a conexão com o banco de dados
     private Connection conn;  // Representa a conexão ativa com o banco de dados
