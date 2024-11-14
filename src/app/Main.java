@@ -1,8 +1,10 @@
+package app;
+
 import menu.MenuCliente; // Importa a classe MenuCliente do pacote menu.
 import java.util.Scanner; //Importa a classe Scanner para leitura da entrada de dados do usuário.
 
 /**
- * A classe Main é responsável por inicializar o sistema de gestão do E-comerce.
+ * A classe app.Main é responsável por inicializar o sistema de gestão do E-comerce.
  * Esta classe apresenta ao usuário o menu principal e permite gerenciar os clientes ou sair do programa.
  *
  * @author Samantha Yumi
