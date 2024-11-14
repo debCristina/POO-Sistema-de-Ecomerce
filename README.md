@@ -6,6 +6,9 @@
 <img alt="Static Badge" src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-green">
 </p>
 
+## 📒 Documentação
+A documentação do sistema está disponível no  seguinte link
+
 ## 🛍 Visão Geral
 
 Bem-vindo ao *Sistema de Ecomerce*!  
@@ -27,10 +30,8 @@ Este é um sistema de integração com banco de dados MySQL que tem como objetiv
    
  ```
 bash
-   git clone https://github.com/debCristina/literalura.git
-```
-2. Importe execute o script SQL localizado na pasta /database para estruturar as tabelas e dados iniciais.
-   
+   git clone https://github.com/debCristina/POO-Sistema-de-Ecomerce.git
+```   
 3.  No arquivo `src/util/ConexaoUtil` configure com suas informações
 
    ```
@@ -46,12 +47,12 @@ bash
 - Abra o projeto em sua IDE java preferida.
 - Execute a aplicação e aproveite as funcionalidades disponíveis.
 
-
 ## 📅 Etapas do Projeto
 
 1. *Modelagem do Banco de Dados*: Criação dos modelos conceitual, lógico e físico.
 2. *Desenvolvimento da Aplicação*: Implementação das operações CRUD.
-3. *Entrega*: Publicação do projeto no GitHub com código-fonte e documentação completa.
+3. *Desenvolvimento da documentação*: Criação da documentação do sistema.
+4. *Entrega*: Publicação do projeto no GitHub com código-fonte e documentação completa.
 
 ---
 
