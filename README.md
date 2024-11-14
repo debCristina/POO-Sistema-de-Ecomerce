@@ -2,7 +2,7 @@
 <p align="center">
 <img alt="Static Badge" src="https://img.shields.io/badge/Java-17-green">
 <img alt="Static Badge" src="https://img.shields.io/badge/MySQL-8.0-blue">
-<img alt="Static Badge" src="https://img.shields.io/badge/JDBC-8-blue">
+<img alt="Static Badge" src="https://img.shields.io/badge/JDBC-8.0-blue">
 <img alt="Static Badge" src="https://img.shields.io/badge/Status-Conclu%C3%ADdo-green">
 </p>
 
