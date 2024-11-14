@@ -6,7 +6,8 @@ import java.util.Scanner; //Importa a classe Scanner para leitura da entrada de 
  * Esta classe apresenta ao usuário o menu principal e permite gerenciar os clientes ou sair do programa.
  *
  * @author Samantha Yumi
- * @since 1.0
+ * @version 1.0
+ * @since 13/11/2024
 */
     
 public class Main {
