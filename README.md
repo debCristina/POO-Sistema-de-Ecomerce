@@ -37,7 +37,7 @@ bash
    ```
     private String caminho = "localhost";
     private String porta = "3306";
-    private String nomeBancoDeDados = "bd_lojafisica";
+    private String nomeBancoDeDados = "bd_loja";
     private String usuario = "root";
     private String senha = System.getenv("DB_MYSQL_PASSWORD");
 
